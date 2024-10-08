@@ -18,6 +18,11 @@
 
 **Navigate to files**
 
+|[HTML](/wwwroot/index.html)[CSS](/wwwroot/styles.css)
+|[Program.cs](/Program.cs)[WheatherData.cs](/classes/WeatherData.cs)
+|[WeatherController.cs](/Controller/WeatherController.cs)[WheatherService.cs](/Services/WeatherService.cs)
+|
+
 -[HTML](/wwwroot/index.html) -[CSS](/wwwroot/styles.css)
 
 -[Program.cs](/Program.cs) [WheatherData.cs](/classes/WeatherData.cs) -[WeatherController.cs](/Controller/WeatherController.cs) -[WheatherService.cs](/Services/WeatherService.cs)
