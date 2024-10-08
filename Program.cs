@@ -16,12 +16,16 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+app.UseStaticFiles();  // Serve static files from wwwroot folder
 app.UseHttpsRedirection();
 app.UseRouting();
 
+// Map controller routes and fallback to index.html for any non-API request
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();  // Map controller routes
+    // Fallback to index.html for SPA or static files
+    endpoints.MapFallbackToFile("index.html");
 });
 
 app.Run();
