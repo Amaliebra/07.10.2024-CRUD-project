@@ -1,9 +1,8 @@
 using System.Net.Http;
 using System.Text.Json;
+using System.Text.Json.Serialization;  // Add this line
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using System.Text.Json.Serialization;
-
 
 public class WeatherService
 {
@@ -31,7 +30,7 @@ public class WeatherService
                 // Attempt to deserialize the JSON response
                 var weatherData = JsonSerializer.Deserialize<WeatherData>(jsonResponse);
                 
-                // Ensure that the deserialized object is not null because it didnt work
+                // Ensure that the deserialized object is not null
                 if (weatherData?.CurrentWeather != null)
                 {
                     return $"Temperature in Bergen: {weatherData.CurrentWeather.Temperature}°C, Windspeed: {weatherData.CurrentWeather.Windspeed} km/h";
@@ -57,16 +56,16 @@ public class WeatherService
 
     private class WeatherData
     {
-        [JsonPropertyName("current_weather")]
+        [JsonPropertyName("current_weather")]  // Map the JSON property "current_weather" to the C# property
         public CurrentWeatherData CurrentWeather { get; set; }
     }
 
     private class CurrentWeatherData
     {
-        [JsonPropertyName("temperature")]
+        [JsonPropertyName("temperature")]  // Map the JSON property "temperature" to the C# property
         public float Temperature { get; set; }
 
-        [JsonPropertyName("windspeed")]
+        [JsonPropertyName("windspeed")]  // Map the JSON property "windspeed" to the C# property
         public float Windspeed { get; set; }
     }
 }
