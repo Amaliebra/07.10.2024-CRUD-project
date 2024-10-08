@@ -5,7 +5,7 @@ public class WeatherData
   [JsonPropertyName("current_weather")]
   public CurrentWeatherData CurrentWeather { get; set;}
 }
-
+// we dont use all the functions
 public class CurrentWeatherData
 {
   [JsonPropertyName("temperature")]
