@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/weather")]
 public class WeatherController : ControllerBase
 {
     private readonly WeatherService _weatherService;
