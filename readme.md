@@ -21,7 +21,7 @@
 
 
 **Viev Figma Document**
-- [here](documentation/Figma-design.pdf)
+- [Figma](documentation/Figma-design.pdf)
 
 
 
