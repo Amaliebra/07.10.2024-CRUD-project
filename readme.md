@@ -20,6 +20,13 @@
 
 
 
+**Viev Figma Document**
+- [here](documentation/Figma-design.pdf)
+
+
+
+
+
 
 A small app for looking up the weather in Bergen, NO.
 
