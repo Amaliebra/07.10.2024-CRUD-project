@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +27,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();  // Map controller routes
     // Fallback to index.html for SPA or static files
     endpoints.MapFallbackToFile("index.html");
+
 });
 
 app.Run();

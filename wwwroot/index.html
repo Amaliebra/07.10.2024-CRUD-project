@@ -4,12 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Network</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header>
       <h1>Weather Network</h1>
     </header>
-    
+     <main>
+      <div class="weather-container">
+        <h1>{{ temperature }}</h1>
+        <h1>{{ rain }}</h1>
+        <button id="getWeather">Get Weather for Bergen</button>
+        <p id="weatherInfo"></p>
+      </div>
+    </main>
     <button id="getWeather">Get Weather for Bergen</button>
     <p id="weatherInfo"></p>
 
