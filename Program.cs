@@ -1,35 +1,27 @@
-using System.IO;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Register HttpClient and WeatherService for dependency injection
-builder.Services.AddHttpClient<WeatherService>();
+// Add services to the container.
+builder.Services.AddControllers();
+builder.Services.AddHttpClient<WeatherService>();  // Registers HttpClient for WeatherService
 
 var app = builder.Build();
-
-string htmlPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "index.html");
-string htmlContent = File.ReadAllText(htmlPath);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseHttpsRedirection();
 app.UseRouting();
-app.UseStaticFiles();
-app.UseDefaultFiles();
 
-// Endpoint to serve the HTML page
-app.MapGet("/", () => Results.Content(htmlContent, "text/html"));
-
-// Endpoint to get the weather data for Bergen
-app.MapGet("/api/weather", async (WeatherService weatherService) =>
+app.UseEndpoints(endpoints =>
 {
-    string weatherInfo = await weatherService.GetWeatherForBergenAsync();
-    return Results.Ok(weatherInfo);
+    endpoints.MapControllers();  // Map controller routes
 });
 
 app.Run();
