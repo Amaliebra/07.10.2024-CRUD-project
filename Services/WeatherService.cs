@@ -26,10 +26,10 @@ public class WeatherService
             if (response.IsSuccessStatusCode)
             {
                 var jsonResponse = await response.Content.ReadAsStringAsync();
-                
+
                 // Attempt to deserialize the JSON response
                 var weatherData = JsonSerializer.Deserialize<WeatherData>(jsonResponse);
-                
+
                 // Ensure that the deserialized object is not null
                 if (weatherData?.CurrentWeather != null)
                 {
