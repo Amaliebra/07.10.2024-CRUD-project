@@ -3,7 +3,7 @@
 
 
 ## Introduction
-- This is school project me and Amalie made together.
+- This is school a project me and Amalie made together.
 - we made a weather app to show the weather in our city
 
 
