@@ -11,6 +11,8 @@ body {
   min-width: 100vw;
 }
 
+/* -----------HEADER---------- */
+
 header {
   min-height: 100px;
 }
@@ -27,7 +29,10 @@ header {
 .local-only {
   color: rgb(143, 143, 211);
   padding-left: 10px;
+  font-size: 13px;
 }
+
+/* -------------MAIN------------- */
 
 main {
   display: flex;
@@ -37,13 +42,33 @@ main {
 }
 
 .weather-container {
-  background-color: aqua;
+  align-items: center;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .bergen {
   color: rgb(30, 29, 29);
+  justify-content: start;
 }
 
 p {
   color: rgb(30, 29, 29);
+}
+
+#getWeather {
+  background-color: rgb(143, 143, 211);
+  text-decoration: none;
+  color: whitesmoke;
+  border: none;
+  border-radius: 2px;
+  width: 90px;
+  height: 40px;
+  font-size: 17px;
+}
+
+#weatherInfo {
+  color: blueviolet;
 }
