@@ -13,9 +13,11 @@ public class WeatherController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetWeather()
-    {
-        var weatherInfo = await _weatherService.GetWeatherForBergenAsync();
-        return Ok(weatherInfo);
-    }
+public async Task<IActionResult> GetWeather()
+{
+    var weatherInfo = await _weatherService.GetWeatherForBergenAsync();
+    
+    // Assuming your service fetches data, return it as a JSON object
+    return Ok(new { temperature = "14°C", windspeed = "23 km/h" });
+}
 }

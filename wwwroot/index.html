@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Network</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
-      <h1>Weather Network</h1>
+      <h1 class="logo">Bax Weather Network</h1>
+      <p class="local-only">Local weather ONLY</p>
     </header>
-     <main>
+    <main>
       <div class="weather-container">
-        <h1>{{ temperature }}</h1>
-        <h1>{{ rain }}</h1>
-        <button id="getWeather">Get Weather for Bergen</button>
+        <h1 class="bergen">Bergen</h1>
+        <p>Current weather in Bergen, Norway.</p>
+        <button id="getWeather">Click this!</button>
         <p id="weatherInfo"></p>
       </div>
     </main>
-
     <script>
       document.getElementById("getWeather").addEventListener("click", async () => {
         try {
@@ -26,8 +26,12 @@
           if (!response.ok) {
             throw new Error("Failed to fetch weather data");
           }
-          const weatherInfo = await response.text();
-          document.getElementById("weatherInfo").innerText = weatherInfo;
+          
+          // Use response.json() to parse JSON
+          const weatherInfo = await response.json();
+    
+          // Assuming weatherInfo contains properties like 'temperature' and 'windspeed'
+          document.getElementById("weatherInfo").innerText = `Temperature: ${weatherInfo.temperature}, Windspeed: ${weatherInfo.windspeed}`;
         } catch (error) {
           document.getElementById("weatherInfo").innerText = "Error: " + error.message;
         }
