@@ -1,4 +1,49 @@
-
 * {
-    background-color: bisque;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(243, 243, 243);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+header {
+  min-height: 100px;
+}
+
+.logo {
+  font-weight: 700;
+  color: rgb(143, 143, 211);
+  letter-spacing: -3px;
+  text-decoration-line: overline;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.local-only {
+  color: rgb(143, 143, 211);
+  padding-left: 10px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+}
+
+.weather-container {
+  background-color: aqua;
+}
+
+.bergen {
+  color: rgb(30, 29, 29);
+}
+
+p {
+  color: rgb(30, 29, 29);
 }
