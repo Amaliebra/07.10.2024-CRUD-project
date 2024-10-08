@@ -10,11 +10,30 @@
     <header>
       <h1>Weather Network</h1>
     </header>
-    <main>
+     <main>
       <div class="weather-container">
         <h1>{{ temperature }}</h1>
         <h1>{{ rain }}</h1>
+        <button id="getWeather">Get Weather for Bergen</button>
+        <p id="weatherInfo"></p>
       </div>
     </main>
+    <button id="getWeather">Get Weather for Bergen</button>
+    <p id="weatherInfo"></p>
+
+    <script>
+      document.getElementById("getWeather").addEventListener("click", async () => {
+        try {
+          const response = await fetch("/api/weather");
+          if (!response.ok) {
+            throw new Error("Failed to fetch weather data");
+          }
+          const weatherInfo = await response.text();
+          document.getElementById("weatherInfo").innerText = weatherInfo;
+        } catch (error) {
+          document.getElementById("weatherInfo").innerText = "Error: " + error.message;
+        }
+      });
+    </script>
   </body>
 </html>

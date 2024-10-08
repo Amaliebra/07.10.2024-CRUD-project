@@ -1,62 +1,33 @@
-using System.IO;
-using System.Net.Http;
-using System.Text.Json;
+
 using Microsoft.AspNetCore.Builder;
-
-public class WeatherData
-{
-    public Current Current { get; set; }
-}
-
-public class Current
-{
-    public double temperature_2m { get; set; }
-    public double Rain { get; set; }
-}
-
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 
-string htmlPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "index.html");
-string htmlContent = File.ReadAllText(htmlPath);
+// Add services to the container.
+builder.Services.AddControllers();
+builder.Services.AddHttpClient<WeatherService>();  // Registers HttpClient for WeatherService
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
-
+    app.UseDeveloperExceptionPage();
 }
 
+app.UseStaticFiles();  // Serve static files from wwwroot folder
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseStaticFiles();
-app.UseDefaultFiles();
-
-
-app.MapGet("/", async () =>
+// Map controller routes and fallback to index.html for any non-API request
+app.UseEndpoints(endpoints =>
 {
-    string url = $"https://api.open-meteo.com/v1/forecast?latitude=60.393&longitude=5.3242&current=temperature_2m,rain,weather_code&hourly=temperature_2m&forecast_days=3";
-    using (var httpClient = new HttpClient())
-    {
-        var response = await httpClient.GetAsync(url);
-        if (response.IsSuccessStatusCode)
-        {
-            var responseString = await response.Content.ReadAsStringAsync();
-            var weatherData = JsonSerializer.Deserialize<WeatherData>(responseString);
-            htmlContent = htmlContent.Replace("", weatherData.Current.temperature_2m.ToString());
-            htmlContent = htmlContent.Replace("", weatherData.Current.Rain.ToString());
+    endpoints.MapControllers();  // Map controller routes
+    // Fallback to index.html for SPA or static files
+    endpoints.MapFallbackToFile("index.html");
 
-            return Results.Content(htmlContent, "text/html");
-        }
-        else
-        {
-            return Results.StatusCode((int)response.StatusCode);
-        }
-    }
 });
 
 app.Run();
-
