@@ -37,7 +37,6 @@ header {
 main {
   display: flex;
   justify-content: center;
-  text-align: center;
   min-height: 400px;
 }
 
@@ -54,6 +53,7 @@ main {
   color: rgb(30, 29, 29);
   justify-content: start;
   padding-top: 100px;
+  text-align: center;
 }
 
 p {
