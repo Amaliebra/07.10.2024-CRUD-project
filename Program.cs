@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -7,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddHttpClient<WeatherService>();  // Registers HttpClient for WeatherService
+builder.Services.AddHttpClient<WeatherService>();  // Register the WeatherService with HttpClient support
+builder.Services.AddLogging();  // Add logging services
 
 var app = builder.Build();
 
@@ -17,17 +17,10 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.UseStaticFiles();  // Serve static files from wwwroot folder
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseRouting();
-
-// Map controller routes and fallback to index.html for any non-API request
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();  // Map controller routes
-    // Fallback to index.html for SPA or static files
-    endpoints.MapFallbackToFile("index.html");
-
-});
+app.MapControllers();
 
 app.Run();

@@ -13,9 +13,9 @@ public class WeatherController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetWeather()
+    public async Task<IActionResult> GetWeather() // Use IActionResult for HTTP response
     {
-        var weatherInfo = await _weatherService.GetWeatherForBergenAsync();
-        return Ok(weatherInfo);
+        var weatherInfo = await _weatherService.GetWeatherForBergenAsync(); // Call WeatherService
+        return weatherInfo; // Return the result directly
     }
 }

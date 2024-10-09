@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Network</title>
+    <title>Bax Weather Network</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -11,30 +11,41 @@
       <h1 class="logo">Bax Weather Network</h1>
       <p class="local-only">Local weather ONLY</p>
     </header>
+    <div class="divider-line"></div> 
     <main>
       <div class="weather-container">
         <h1 class="bergen">Bergen</h1>
         <p>Current weather in Bergen, Norway.</p>
-        <button id="getWeather">Click this!</button>
-        <p id="weatherInfo"></p>
+        <p id="temperature">Temperature: Loading...</p>
+        <p id="windspeed">Windspeed: Loading...</p>
+        <p id="condition">Condition: Loading...</p>
       </div>
     </main>
     <script>
-      document
-        .getElementById("getWeather")
-        .addEventListener("click", async () => {
-          try {
-            const response = await fetch("/api/weather");
-            if (!response.ok) {
-              throw new Error("Failed to fetch weather data");
-            }
-            const weatherInfo = await response.text();
-            document.getElementById("weatherInfo").innerText = weatherInfo;
-          } catch (error) {
-            document.getElementById("weatherInfo").innerText =
-              "Error: " + error.message;
+      async function fetchWeather() {
+        try {
+          const response = await fetch("/api/weather");
+          if (!response.ok) {
+            throw new Error("Failed to fetch weather data");
           }
-        });
+    
+          const weatherData = await response.json();
+          console.log("Received Weather Data: ", weatherData);
+    
+          // Update the HTML elements with the fetched data
+          document.getElementById("temperature").innerText = `Temperature: ${weatherData.temperature}`;
+          document.getElementById("windspeed").innerText = `Windspeed: ${weatherData.windspeed}`;
+          document.getElementById("condition").innerText = `Condition: ${weatherData.condition}`;
+        } catch (error) {
+          console.error("Error: ", error.message);
+          document.getElementById("temperature").innerText = "Temperature: Error";
+          document.getElementById("windspeed").innerText = "Windspeed: Error";
+          document.getElementById("condition").innerText = "Condition: Error";
+        }
+      }
+    
+      // Call the function when the page loads
+      window.onload = fetchWeather;
     </script>
   </body>
 </html>
