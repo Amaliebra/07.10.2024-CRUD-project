@@ -1,77 +1,78 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(243, 243, 243);
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  body {
-    min-height: 100vh;
-    min-width: 100vw;
-  }
-  
-  /* -----------HEADER---------- */
-  
-  header {
-    min-height: 100px;
-  }
-  
-  .logo {
-    font-weight: 700;
-    color: rgb(90, 90, 234);
-    letter-spacing: -3px;
-    text-decoration-line: overline;
-    padding-top: 10px;
-    padding-left: 10px;
-  }
-  
-  .local-only {
-    color: rgb(90, 90, 234);
-    padding-left: 10px;
-    font-size: 13px;
-  }
-  
-  /* -------------MAIN------------- */
-  
-  main {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    min-height: 400px;
-  }
-  
-  .weather-container {
-    align-items: center;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    min-width: 500px;
-  }
-  
-  .bergen {
-    color: rgb(30, 29, 29);
-    justify-content: start;
-    padding-top: 100px;
-  }
-  
-  p {
-    color: rgb(30, 29, 29);
-  }
-  
-  #getWeather {
-    background-color: rgb(90, 90, 234);
-    text-decoration: none;
-    color: whitesmoke;
-    border: none;
-    border-radius: 2px;
-    width: 90px;
-    height: 40px;
-    font-size: 17px;
-  }
-  
-  #weatherInfo {
-    color: rgb(90, 90, 234);
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(243, 243, 243);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+/* -----------HEADER---------- */
+
+header {
+  min-height: 100px;
+}
+
+.logo {
+  font-weight: 700;
+  color: rgb(90, 90, 234);
+  letter-spacing: -3px;
+  text-decoration-line: overline;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.local-only {
+  color: rgb(90, 90, 234);
+  padding-left: 10px;
+  font-size: 13px;
+}
+
+/* -------------MAIN------------- */
+
+main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+}
+
+.weather-container {
+  align-items: center;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 500px;
+}
+
+.bergen {
+  color: rgb(30, 29, 29);
+  justify-content: start;
+  padding-top: 100px;
+  text-align: center;
+}
+
+p {
+  color: rgb(30, 29, 29);
+}
+
+#getWeather {
+  background-color: rgb(90, 90, 234);
+  text-decoration: none;
+  color: whitesmoke;
+  border: none;
+  border-radius: 2px;
+  width: 90px;
+  height: 40px;
+  font-size: 17px;
+}
+
+#weatherInfo {
+  color: rgb(90, 90, 234);
+}
 
