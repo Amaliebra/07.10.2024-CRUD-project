@@ -75,3 +75,12 @@ p {
 #weatherInfo {
   color: rgb(90, 90, 234);
 }
+
+main {
+  background-image: url('images/bryggen.jpg'); /* Make sure the image path is correct */
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  min-height: 600px; /* Adjust the height to ensure the background is visible */
+  padding: 20px; /* Adds some padding for content inside */
+}
