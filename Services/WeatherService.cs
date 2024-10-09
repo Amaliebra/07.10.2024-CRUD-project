@@ -1,10 +1,10 @@
 using System.Net.Http;
 using System.Text.Json;
-using System.Text.Json.Serialization;  
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
 
-public class WeatherService
+public class WeatherService : ControllerBase
 {
     private readonly HttpClient _httpClient;
     private readonly ILogger<WeatherService> _logger;
@@ -15,57 +15,50 @@ public class WeatherService
         _logger = logger;
     }
 
-    public async Task<string> GetWeatherForBergenAsync()
+    public async Task<IActionResult> GetWeatherForBergenAsync()
     {
         try
         {
-            // Open-Meteo API endpoint for Bergen, Norway
-            string requestUri = "https://api.open-meteo.com/v1/forecast?latitude=60.393&longitude=5.3242&current_weather=true";
+            // API request
+            string requestUri = "https://api.open-meteo.com/v1/forecast?latitude=60.393&longitude=5.3242&hourly=temperature_2m,precipitation,rain,showers,weather_code,wind_speed_10m";
             var response = await _httpClient.GetAsync(requestUri);
 
             if (response.IsSuccessStatusCode)
             {
                 var jsonResponse = await response.Content.ReadAsStringAsync();
                 
-                // Attempt to deserialize the JSON response
                 var weatherData = JsonSerializer.Deserialize<WeatherData>(jsonResponse);
-                
-                // Ensure that the deserialized object is not null
-                if (weatherData?.CurrentWeather != null)
+
+                if (weatherData?.Hourly != null)
                 {
-                    return $"Temperature in Bergen: {weatherData.CurrentWeather.Temperature}°C, Windspeed: {weatherData.CurrentWeather.Windspeed} km/h";
+                    // Check if the first element in the lists exist and use them, otherwise return "undefined"
+                    float? temperature = weatherData.Hourly.Temperature2M?.Count > 0 ? weatherData.Hourly.Temperature2M[0] : (float?)null;
+                    float? windspeed = weatherData.Hourly.WindSpeed10M?.Count > 0 ? weatherData.Hourly.WindSpeed10M[0] : (float?)null;
+                    int? weatherCode = weatherData.Hourly.WeatherCode?.Count > 0 ? weatherData.Hourly.WeatherCode[0] : (int?)null;
+
+                    return Ok(new
+                    {
+                        temperature = temperature.HasValue ? $"{temperature}°C" : "undefined",
+                        windspeed = windspeed.HasValue ? $"{windspeed} km/h" : "undefined",
+                        condition = weatherCode.HasValue && weatherCode.Value == 3 ? "Cloudy" : "Clear"
+                    });
                 }
                 else
                 {
-                    _logger.LogError("Weather data or CurrentWeather is null.");
-                    return "Weather data is not available.";
+                    _logger.LogError("Hourly weather data is null.");
+                    return StatusCode(500, "Weather data is not available.");
                 }
             }
             else
             {
-                _logger.LogError("Failed to fetch weather data. Status Code: {StatusCode}", response.StatusCode);
-                return "Unable to retrieve weather data.";
+                return StatusCode((int)response.StatusCode, "Unable to retrieve weather data.");
             }
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while fetching weather data.");
-            return "An error occurred while fetching weather data.";
+            _logger.LogError(ex, "Error occurred while fetching weather data.");
+            return StatusCode(500, "An error occurred while fetching weather data.");
         }
     }
-
-    private class WeatherData
-    {
-        [JsonPropertyName("current_weather")]  // Map the JSON property "current_weather" to the C# property
-        public CurrentWeatherData CurrentWeather { get; set; }
-    }
-
-    private class CurrentWeatherData
-    {
-        [JsonPropertyName("temperature")]  // Map the JSON property "temperature" to the C# property
-        public float Temperature { get; set; }
-
-        [JsonPropertyName("windspeed")]  // Map the JSON property "windspeed" to the C# property
-        public float Windspeed { get; set; }
-    }
 }
+

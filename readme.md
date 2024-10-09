@@ -1,28 +1,23 @@
 # Weather App for Bergen
 
-
-
 ## Introduction
-- This is school project me and Amalie made together.
-- we made a weather app to show the weather in our city
 
+- This is school project Bax and Amalie made together.
+- We made a weather app to show the weather in our city
 
-
-### How to use 
+### How to use
 
 **Run the app**
+
 - dotnet run
 
 **Use the app**
+
 - http://localhost:5000
 - http://localhost:5000/api/weather
 
+**Navigate to files**
 
-
-
-
-A small app for looking up the weather in Bergen, NO.
-
--[HTML](/wwwroot/index.html)
-
-
+|[HTML](/wwwroot/index.html)|[CSS](/wwwroot/styles.css)|[Figma](documentation/Figma-design.pdf)
+|[Program.cs](/Program.cs)|[WheatherData.cs](/classes/WeatherData.cs)
+|[WeatherController.cs](/Controller/WeatherController.cs)|[WheatherService.cs](/Services/WeatherService.cs)
