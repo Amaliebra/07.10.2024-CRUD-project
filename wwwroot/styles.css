@@ -102,3 +102,26 @@ main {
 .image {
   background-size: cover;
 }
+
+.checkbox-container {
+  background-color: rgba(0, 0, 0, 0.3); /* dark overlay */
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  display: inline-block;
+  margin-top: 20px;
+  height: 200px;
+}
+
+.checkbox-container label {
+  height: 2px;
+  display: block; /* Ensures each label is on its own line */
+  margin-bottom: 5px; /* Adds some space between the checkboxes */
+}
+
+.choose-condition {
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+}
