@@ -6,6 +6,7 @@
 }
 
 body {
+  background-image: url('images/bergen.jpg');
   min-height: 100vh;
   min-width: 100vw;
 }
@@ -41,23 +42,27 @@ main {
 }
 
 .weather-container {
-  align-items: center;
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  min-width: 500px;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for contrast */
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 500px;
+  margin: auto;
 }
 
+
 .bergen {
-  color: rgb(30, 29, 29);
+  color: rgb(255, 255, 255);
   justify-content: start;
   padding-top: 100px;
   text-align: center;
 }
 
 p {
-  color: rgb(30, 29, 29);
+  color: rgb(255, 255, 255);
+}
+p {
+  margin-bottom: 10px; /* Add space between paragraphs */
 }
 
 #refreshButton {
@@ -82,7 +87,7 @@ p {
 }
 
 main {
-  background-image: url('images/bergen.jpg'); 
+   
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
