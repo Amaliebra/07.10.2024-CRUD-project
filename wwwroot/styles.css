@@ -72,7 +72,7 @@ p {
 #refreshButton {
   height: 40px;
   display: inline-block;
-  background-color: #007BFF; 
+  background: linear-gradient(135deg, #153677, #4e085f);
   color: white;
   border: none;
   border-radius: 8px;
@@ -82,9 +82,7 @@ p {
   transition: background-color 0.3s ease;
 }
 
-#refreshButton:hover {
-  background-color: #0056b3; 
-}
+
 
 #weatherInfo {
   color: rgb(249, 249, 252);
