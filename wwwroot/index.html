@@ -20,6 +20,9 @@
         <p id="temperature">Temperature: Loading...</p>
         <p id="windspeed">Windspeed: Loading...</p>
         <p id="condition">Condition: Loading...</p>
+        <p id="is-day">Day or Night: Loading...</p>
+        <p id="visibility">Visibility: Loading...</p>
+        <p id="humidity">Humidity: Loading...</p>
       </div>
     </main>
 
@@ -32,6 +35,8 @@
           }
 
           const weatherData = await response.json();
+          console.log(weatherData);
+
           console.log("Received Weather Data: ", weatherData);
 
           // Update the HTML elements with the fetched data
@@ -39,11 +44,22 @@
           document.getElementById("windspeed").innerText = `Windspeed: ${weatherData.windspeed}`;
           document.getElementById("condition").innerText = `Condition: ${weatherData.condition}`;
           
+
+          // Handle Day and night
+          document.getElementById("is-day").innerText = `Day or Night: ${weatherData.isDay}`;
+          
+          // Visibility
+          document.getElementById("visibility").innerText = `Visibility: ${weatherData.visibility !== "0 km" ? weatherData.visibility : "No data"}`;
+
+          //Humidity
+          document.getElementById("humidity").innerText = `Humidity: ${weatherData.humidity ? weatherData.humidity : "No data"}`;
+
         } catch (error) {
-          console.error("Error: ", error.message);
-          document.getElementById("temperature").innerText = "Temperature: Error";
-          document.getElementById("windspeed").innerText = "Windspeed: Error";
-          document.getElementById("condition").innerText = "Condition: Error";
+            console.error("Error: ", error.message);
+            document.getElementById("temperature").innerText = "Temperature: Error";
+            document.getElementById("windspeed").innerText = "Windspeed: Error";
+            document.getElementById("condition").innerText = "Condition: Error";
+            
         }
       }
 
