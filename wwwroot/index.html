@@ -24,6 +24,15 @@
         <p id="visibility">Visibility: Loading...</p>
         <p id="humidity">Humidity: Loading...</p>
       </div>
+      
+      <div>
+        <label><input type="checkbox" id="toggle-temperature" checked> Temperature</label><br>
+        <label><input type="checkbox" id="toggle-windspeed" checked> Windspeed</label><br>
+        <label><input type="checkbox" id="toggle-condition" checked> Condition</label><br>
+        <label><input type="checkbox" id="toggle-is-day" checked> Day or Night</label><br>
+        <label><input type="checkbox" id="toggle-visibility" checked> Visibility</label><br>
+        <label><input type="checkbox" id="toggle-humidity" checked> Humidity</label><br>
+      </div>
     </main>
 
     <script>
@@ -43,28 +52,37 @@
           document.getElementById("temperature").innerText = `Temperature: ${weatherData.temperature}`;
           document.getElementById("windspeed").innerText = `Windspeed: ${weatherData.windspeed}`;
           document.getElementById("condition").innerText = `Condition: ${weatherData.condition}`;
-          
-
-          // Handle Day and night
           document.getElementById("is-day").innerText = `Day or Night: ${weatherData.isDay}`;
-          
-          // Visibility
           document.getElementById("visibility").innerText = `Visibility: ${weatherData.visibility !== "0 km" ? weatherData.visibility : "No data"}`;
-
-          //Humidity
           document.getElementById("humidity").innerText = `Humidity: ${weatherData.humidity ? weatherData.humidity : "No data"}`;
-
         } catch (error) {
             console.error("Error: ", error.message);
             document.getElementById("temperature").innerText = "Temperature: Error";
             document.getElementById("windspeed").innerText = "Windspeed: Error";
             document.getElementById("condition").innerText = "Condition: Error";
-            
         }
       }
 
+      // Function to handle toggling based on user selection
+      function toggleElements() {
+        document.getElementById('temperature').style.display = document.getElementById('toggle-temperature').checked ? 'block' : 'none';
+        document.getElementById('windspeed').style.display = document.getElementById('toggle-windspeed').checked ? 'block' : 'none';
+        document.getElementById('condition').style.display = document.getElementById('toggle-condition').checked ? 'block' : 'none';
+        document.getElementById('is-day').style.display = document.getElementById('toggle-is-day').checked ? 'block' : 'none';
+        document.getElementById('visibility').style.display = document.getElementById('toggle-visibility').checked ? 'block' : 'none';
+        document.getElementById('humidity').style.display = document.getElementById('toggle-humidity').checked ? 'block' : 'none';
+      }
+
+      // Add event listeners to checkboxes to trigger toggling
+      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', toggleElements);
+      });
+
       // Call the function when the page loads
-      window.onload = fetchWeather;
+      window.onload = function() {
+        fetchWeather();
+        toggleElements();  // Ensure toggle state is applied on page load
+      };
     </script>
   </body>
 </html>
