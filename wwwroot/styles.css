@@ -9,6 +9,10 @@ body {
   background-image: url('images/bergen.jpg');
   min-height: 100vh;
   min-width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+  background-attachment: fixed;
 }
 
 /* -----------HEADER---------- */
