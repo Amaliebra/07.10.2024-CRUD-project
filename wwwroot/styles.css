@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: rgb(243, 243, 243);
+  
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -61,15 +61,20 @@ p {
   color: rgb(30, 29, 29);
 }
 
-#getWeather {
-  background-color: rgb(90, 90, 234);
-  text-decoration: none;
-  color: whitesmoke;
+#refreshButton {
+  display: inline-block;
+  background-color: #007BFF; 
+  color: white;
   border: none;
-  border-radius: 2px;
-  width: 90px;
-  height: 40px;
-  font-size: 17px;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#refreshButton:hover {
+  background-color: #0056b3; 
 }
 
 #weatherInfo {

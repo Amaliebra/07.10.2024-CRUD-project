@@ -33,6 +33,9 @@
         <label><input type="checkbox" id="toggle-visibility" checked> Visibility</label><br>
         <label><input type="checkbox" id="toggle-humidity" checked> Humidity</label><br>
       </div>
+      <!-- Add a Refresh button -->
+<button id="refreshButton" onclick="refreshWeather()">Refresh Weather Data</button>
+
     </main>
 
     <script>
@@ -71,6 +74,19 @@
         document.getElementById('is-day').style.display = document.getElementById('toggle-is-day').checked ? 'block' : 'none';
         document.getElementById('visibility').style.display = document.getElementById('toggle-visibility').checked ? 'block' : 'none';
         document.getElementById('humidity').style.display = document.getElementById('toggle-humidity').checked ? 'block' : 'none';
+      }
+
+      function refreshWeather() {
+        // Optionally, clear current weather data from the page
+        document.getElementById("temperature").innerText = "Temperature: Loading...";
+        document.getElementById("windspeed").innerText = "Windspeed: Loading...";
+        document.getElementById("condition").innerText = "Condition: Loading...";
+        document.getElementById("is-day").innerText = "Day or Night: Loading...";
+        document.getElementById("visibility").innerText = "Visibility: Loading...";
+        document.getElementById("humidity").innerText = "Humidity: Loading...";
+  
+        // Fetch new weather data
+        fetchWeather();
       }
 
       // Add event listeners to checkboxes to trigger toggling
