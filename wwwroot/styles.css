@@ -21,19 +21,8 @@ header {
   min-height: 100px;
 }
 
-.logo {
-  font-weight: 700;
-  color: rgb(7, 7, 7);
-  letter-spacing: -3px;
-  text-decoration-line: overline;
-  padding-top: 10px;
-  padding-left: 10px;
-}
-
-.local-only {
-  color: rgb(7, 7, 7);
-  padding-left: 10px;
-  font-size: 13px;
+.BaxAma {
+  
 }
 
 /* -------------MAIN------------- */
