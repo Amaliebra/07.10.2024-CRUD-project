@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bax Weather Network</title>
     <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
   </head>
   <body>
     <header>
       <img class="BaxAma" src="images/BaxAma.png" alt="Baxama Fail">
     </header>
-
-    <div class="divider-line"></div> 
+    <div class="divider-line"></div>
     <main>
       <div class="weather-container">
         <h1 class="bergen">Bergen</h1>
         <p >Current weather in Bergen, Norway.</p>
         <p id="temperature">Temperature: Loading...</p>
-        <p id="windspeed">Windspeed: Loading...</p>
         <p id="condition">Condition: Loading...</p>
+
         <p id="is-day">Day or Night: Loading...</p>
         <p id="visibility">Visibility: Loading...</p>
         <p id="humidity">Humidity: Loading...</p>
@@ -35,11 +35,17 @@
         <label><input type="checkbox" id="toggle-is-day" checked> Day or Night</label><br>
         <label><input type="checkbox" id="toggle-visibility" checked> Visibility</label><br>
         <label><input type="checkbox" id="toggle-humidity" checked> Humidity</label><br>
+=======
+        <!-- ▼ ▲ -->
+        <button class="show-more"></button>
+        <p id="windspeed">Windspeed: Loading...</p>
+
       </div>
       
 
       
     </main>
+
 
     
 
@@ -106,5 +112,6 @@
         toggleElements();  // Ensure toggle state is applied on page load
       };
     </script>
+
   </body>
 </html>

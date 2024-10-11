@@ -5,20 +5,34 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
 body {
-  background-image: url('images/bergen.jpg');
-  min-height: 100vh;
-  min-width: 100vw;
+
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  background-image: url("backround.jpg");
   background-size: cover;
-  background-position: center;
-  background-repeat: none;
   background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
 }
 
 /* -----------HEADER---------- */
 
 header {
   min-height: 100px;
+  position: relative;
+  background: none;
 }
 
 .BaxAma {
@@ -30,25 +44,40 @@ header {
 main {
   display: flex;
   justify-content: center;
-  text-align: center;
-  min-height: 400px;
+  height: 400px;
+  position: relative;
 }
 
 .weather-container {
-  background-color: rgba(0, 0, 0, 0.6); 
+
+/*  background-color: rgba(0, 0, 0, 0.6); 
   padding: 10px 20px;
   border-radius: 10px;
   display: inline-block;
   max-width: 500px;
   margin: auto;
+  */
+
+  align-items: center;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100vw;
+  height: 350px;
+  background-color: rgb(90, 90, 234, 0.9);
+  border-radius: 5px;
+  margin-top: 50px;
+
 }
 
 
 .bergen {
-  color: rgb(255, 255, 255);
+
+  color: whitesmoke;
+
   justify-content: start;
-  padding-top: 100px;
-  text-align: center;
+  padding-top: 20px;
 }
 
 
@@ -56,7 +85,9 @@ p {
   color: rgb(255, 255, 255);
 }
 p {
-  margin-bottom: 10px; 
+
+  color: whitesmoke;
+
 }
 
 #refreshButton {
@@ -78,18 +109,7 @@ p {
   color: rgb(249, 249, 252);
 }
 
-main {
-   
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  min-height: 600px; 
-  padding: 20px;
-}
 
-.image {
-  background-size: cover;
-}
 
 .checkbox-container {
   background-color: rgba(0, 0, 0, 0.3); 
@@ -113,3 +133,31 @@ main {
   margin-bottom: 10px;
   color: white;
 }
+
+.show-more {
+  border: none;
+  width: 110px;
+  height: 40px;
+  text-decoration: none;
+  font-size: 16px;
+  background: none;
+  color: whitesmoke;
+}
+
+#windspeed {
+  display: none;
+  min-width: 130px;
+  min-height: 19px;
+}
+
+#windspeed::before {
+  display: none;
+  min-width: 130px;
+  min-height: 19px;
+}
+
+#windspeed::after {
+  min-width: 130px;
+  min-height: 19px;
+}
+
