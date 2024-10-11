@@ -22,7 +22,7 @@ header {
 }
 
 .BaxAma {
-  
+
 }
 
 /* -------------MAIN------------- */
@@ -35,7 +35,7 @@ main {
 }
 
 .weather-container {
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for contrast */
+  background-color: rgba(0, 0, 0, 0.6); 
   padding: 10px 20px;
   border-radius: 10px;
   display: inline-block;
@@ -51,11 +51,12 @@ main {
   text-align: center;
 }
 
+
 p {
   color: rgb(255, 255, 255);
 }
 p {
-  margin-bottom: 10px; /* Add space between paragraphs */
+  margin-bottom: 10px; 
 }
 
 #refreshButton {
@@ -91,7 +92,7 @@ main {
 }
 
 .checkbox-container {
-  background-color: rgba(0, 0, 0, 0.3); /* dark overlay */
+  background-color: rgba(0, 0, 0, 0.3); 
   padding: 10px 20px;
   border-radius: 10px;
   color: white;
@@ -102,8 +103,8 @@ main {
 
 .checkbox-container label {
   height: 2px;
-  display: block; /* Ensures each label is on its own line */
-  margin-bottom: 5px; /* Adds some space between the checkboxes */
+  display: block; 
+  margin-bottom: 5px; 
 }
 
 .choose-condition {

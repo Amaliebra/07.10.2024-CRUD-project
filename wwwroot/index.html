@@ -15,7 +15,7 @@
     <main>
       <div class="weather-container">
         <h1 class="bergen">Bergen</h1>
-        <p>Current weather in Bergen, Norway.</p>
+        <p >Current weather in Bergen, Norway.</p>
         <p id="temperature">Temperature: Loading...</p>
         <p id="windspeed">Windspeed: Loading...</p>
         <p id="condition">Condition: Loading...</p>
@@ -36,7 +36,7 @@
         <label><input type="checkbox" id="toggle-visibility" checked> Visibility</label><br>
         <label><input type="checkbox" id="toggle-humidity" checked> Humidity</label><br>
       </div>
-      <!-- Add a Refresh button -->
+      
 
       
     </main>
@@ -83,7 +83,7 @@
       }
 
       function refreshWeather() {
-        // Optionally, clear current weather data from the page
+        // clear current weather data from the page
         document.getElementById("temperature").innerText = "Temperature: Loading...";
         document.getElementById("windspeed").innerText = "Windspeed: Loading...";
         document.getElementById("condition").innerText = "Condition: Loading...";
