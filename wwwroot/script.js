@@ -1,8 +1,50 @@
+// Function to uncheck all checkboxes
+function resetSelection() {
+  const checkboxes = document.querySelectorAll('.checkbox-list input[type="checkbox"]');
+
+  // Uncheck all checkboxes
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = false;
+  });
+
+  // Trigger toggleElements to hide the unchecked elements
+  toggleElements();
+}
+
+// Add event listener for the Delete button to uncheck all checkboxes
+document.getElementById("resetButton").addEventListener("click", resetSelection);
+
+// Ensure refreshWeather and toggleElements are called on page load and checkboxes change
 window.onload = function () {
-  fetchWeather(); // Call fetchWeather on page load
-  toggleElements(); // Call toggleElements to ensure checkboxes' state is applied
+  fetchWeather();
+  toggleElements();
 };
 
+// Function to toggle visibility of weather elements based on checkbox states
+function toggleElements() {
+  const temperatureEl = document.getElementById("temperature");
+  const windspeedEl = document.getElementById("windspeed");
+  const conditionEl = document.getElementById("condition");
+  const isDayEl = document.getElementById("is-day");
+  const visibilityEl = document.getElementById("visibility");
+  const humidityEl = document.getElementById("humidity");
+
+  if (temperatureEl && windspeedEl && conditionEl && isDayEl && visibilityEl && humidityEl) {
+    temperatureEl.style.display = document.getElementById("toggle-temperature").checked ? "block" : "none";
+    windspeedEl.style.display = document.getElementById("toggle-windspeed").checked ? "block" : "none";
+    conditionEl.style.display = document.getElementById("toggle-condition").checked ? "block" : "none";
+    isDayEl.style.display = document.getElementById("toggle-is-day").checked ? "block" : "none";
+    visibilityEl.style.display = document.getElementById("toggle-visibility").checked ? "block" : "none";
+    humidityEl.style.display = document.getElementById("toggle-humidity").checked ? "block" : "none";
+  }
+}
+
+// Add event listeners for checkboxes
+document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+  checkbox.addEventListener('change', toggleElements);
+});
+
+// Fetch weather data function remains the same
 async function fetchWeather() {
   try {
     const response = await fetch("/api/weather");
@@ -36,42 +78,3 @@ async function fetchWeather() {
   }
 }
 
-function refreshWeather() {
-  // Clear the current weather data to show loading state
-  document.getElementById("temperature").innerText = "Temperature: Loading...";
-  document.getElementById("windspeed").innerText = "Windspeed: Loading...";
-  document.getElementById("condition").innerText = "Condition: Loading...";
-  document.getElementById("is-day").innerText = "Day or Night: Loading...";
-  document.getElementById("visibility").innerText = "Visibility: Loading...";
-  document.getElementById("humidity").innerText = "Humidity: Loading...";
-
-  // Fetch new weather data
-  fetchWeather();
-}
-
-// Event listeners for toggling checkbox elements
-function toggleElements() {
-  const temperatureEl = document.getElementById("temperature");
-  const windspeedEl = document.getElementById("windspeed");
-  const conditionEl = document.getElementById("condition");
-  const isDayEl = document.getElementById("is-day");
-  const visibilityEl = document.getElementById("visibility");
-  const humidityEl = document.getElementById("humidity");
-
-  if (temperatureEl && windspeedEl && conditionEl && isDayEl && visibilityEl && humidityEl) {
-    temperatureEl.style.display = document.getElementById("toggle-temperature").checked ? "block" : "none";
-    windspeedEl.style.display = document.getElementById("toggle-windspeed").checked ? "block" : "none";
-    conditionEl.style.display = document.getElementById("toggle-condition").checked ? "block" : "none";
-    isDayEl.style.display = document.getElementById("toggle-is-day").checked ? "block" : "none";
-    visibilityEl.style.display = document.getElementById("toggle-visibility").checked ? "block" : "none";
-    humidityEl.style.display = document.getElementById("toggle-humidity").checked ? "block" : "none";
-  }
-}
-
-
-document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-  checkbox.addEventListener('change', toggleElements);
-});
-
-
-document.getElementById("refreshButton").addEventListener("click", refreshWeather);
