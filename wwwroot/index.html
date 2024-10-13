@@ -9,7 +9,11 @@
   </head>
   <body>
     <header>
-      <img class="BaxAma" src="images/BaxAma.png" alt="Baxama Fail">
+      <div class="logo">
+        <p >_______________________</p>
+        <p >BaxAma Weather Service</p>
+        <p >Local Weather Only</p>
+      </div>
     </header>
     <div class="divider-line"></div>
     <main>
@@ -28,18 +32,15 @@
       </div>
       
       <div class="checkbox-container">
-        <p class="choose-condition">choose conditions</p>
-        <label><input type="checkbox" id="toggle-temperature" checked> Temperature</label><br>
-        <label><input type="checkbox" id="toggle-windspeed" checked> Windspeed</label><br>
-        <label><input type="checkbox" id="toggle-condition" checked> Condition</label><br>
-        <label><input type="checkbox" id="toggle-is-day" checked> Day or Night</label><br>
-        <label><input type="checkbox" id="toggle-visibility" checked> Visibility</label><br>
-        <label><input type="checkbox" id="toggle-humidity" checked> Humidity</label><br>
-=======
-        <!-- ▼ ▲ -->
-        <button class="show-more"></button>
-        <p id="windspeed">Windspeed: Loading...</p>
-
+        <div class="checkbox-list minimized">
+          <p class="choose-condition">choose conditions</p>
+          <label><input type="checkbox" id="toggle-temperature" checked> Temperature</label><br>
+          <label><input type="checkbox" id="toggle-windspeed" checked> Windspeed</label><br>
+          <label><input type="checkbox" id="toggle-condition" checked> Condition</label><br>
+          <label><input type="checkbox" id="toggle-is-day" checked> Day or Night</label><br>
+          <label><input type="checkbox" id="toggle-visibility" checked> Visibility</label><br>
+          <label><input type="checkbox" id="toggle-humidity" checked> Humidity</label><br>
+        </div>
       </div>
       
 

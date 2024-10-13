@@ -41,5 +41,20 @@ async function fetchWeather() {
   }
 }
 
+function toggleCheckboxList() {
+  const checkboxList = document.querySelector('.checkbox-list');
+  const showMoreButton = document.querySelector('.show-more');
+
+  // Toggle the visibility of the checkbox list
+  checkboxList.classList.toggle('hidden-element');
+
+  // Update the button text depending on the state
+  if (checkboxList.classList.contains('hidden-element')) {
+    showMoreButton.innerText = 'Show more ▼';
+  } else {
+    showMoreButton.innerText = 'Show less ▲';
+  }
+}
+
 // Call the function when the page loads
 window.onload = fetchWeather;
