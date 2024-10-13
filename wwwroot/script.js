@@ -2,22 +2,19 @@
 function resetSelection() {
   const checkboxes = document.querySelectorAll('.checkbox-list input[type="checkbox"]');
 
-  // Uncheck all checkboxes
   checkboxes.forEach(checkbox => {
     checkbox.checked = false;
   });
 
-  // Trigger toggleElements to hide the unchecked elements
   toggleElements();
 }
 
-// Add event listener for the Delete button to uncheck all checkboxes
 document.getElementById("resetButton").addEventListener("click", resetSelection);
 
-// Ensure refreshWeather and toggleElements are called on page load and checkboxes change
 window.onload = function () {
   fetchWeather();
   toggleElements();
+  document.getElementById("refreshButton").addEventListener("click", refreshWeather); // Add the event listener for the refresh button here
 };
 
 // Function to toggle visibility of weather elements based on checkbox states
@@ -39,12 +36,11 @@ function toggleElements() {
   }
 }
 
-// Add event listeners for checkboxes
 document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
   checkbox.addEventListener('change', toggleElements);
 });
 
-// Fetch weather data function remains the same
+// Fetch weather data function
 async function fetchWeather() {
   try {
     const response = await fetch("/api/weather");
@@ -53,7 +49,7 @@ async function fetchWeather() {
     }
 
     const weatherData = await response.json();
-    console.log("Received Weather Data: ", weatherData);
+    console.log("Received Weather Data: ", weatherData); // Added to check that Api data is received
 
     // Ensure weatherData contains the required fields
     if (weatherData) {
@@ -78,3 +74,16 @@ async function fetchWeather() {
   }
 }
 
+// Function to refresh weather data
+function refreshWeather() {
+  
+  document.getElementById("temperature").innerText = "Temperature: Loading...";
+  document.getElementById("windspeed").innerText = "Windspeed: Loading...";
+  document.getElementById("condition").innerText = "Condition: Loading...";
+  document.getElementById("is-day").innerText = "Day or Night: Loading...";
+  document.getElementById("visibility").innerText = "Visibility: Loading...";
+  document.getElementById("humidity").innerText = "Humidity: Loading...";
+
+  
+  fetchWeather();
+}
