@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, ;
 }
 
 html, body {
@@ -10,7 +10,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url("backround.jpg");
+  background-image: url("images/bergen.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -27,7 +27,7 @@ header {
 }
 
 .logo {
-  font-family:'Sixtyfour Convergence', sans-serif;
+  font-family:'Arial', sans-serif;
   color: #9d45af; 
   font-size: 24px; 
   text-align: left; 
@@ -88,6 +88,13 @@ main {
   color: white;
   margin-top: 10px; 
   text-align: center; 
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: white;
+  margin: 15px 0; /* Add space before and after */
 }
 
 #resetButton {
