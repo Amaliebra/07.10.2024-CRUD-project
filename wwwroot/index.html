@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bax Weather Network</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <p >_______________________</p>
-        <p >BaxAma Weather Service</p>
-        <p >Local Weather Only</p>
-      </div>
-    </header>
-    <div class="divider-line"></div>
-    <main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bax Weather Network</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script> <!-- Added defer to ensure JS loads after HTML -->
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <p>_______________________</p>
+      <p>BaxAma Weather Service</p>
+      <p>Local Weather Only</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="content-wrapper">
       <div class="weather-container">
         <h1 class="bergen">Bergen</h1>
-        <p >Current weather in Bergen, Norway.</p>
+        <p>Current weather in Bergen, Norway.</p>
         <p id="temperature">Temperature: Loading...</p>
         <p id="condition">Condition: Loading...</p>
-
         <p id="is-day">Day or Night: Loading...</p>
         <p id="visibility">Visibility: Loading...</p>
         <p id="humidity">Humidity: Loading...</p>
+        <p id="windspeed">Windspeed: Loading...</p>
 
-        
-        <button id="refreshButton" onclick="refreshWeather()">Refresh Weather Data</button>
+        <button id="refreshButton">Refresh Weather Data</button>
       </div>
-      
+
       <div class="checkbox-container">
         <div class="checkbox-list minimized">
-          <p class="choose-condition">choose conditions</p>
+          <p class="choose-condition">Choose conditions</p>
           <label><input type="checkbox" id="toggle-temperature" checked> Temperature</label><br>
           <label><input type="checkbox" id="toggle-windspeed" checked> Windspeed</label><br>
           <label><input type="checkbox" id="toggle-condition" checked> Condition</label><br>
@@ -42,77 +42,7 @@
           <label><input type="checkbox" id="toggle-humidity" checked> Humidity</label><br>
         </div>
       </div>
-      
-
-      
-    </main>
-
-
-    
-
-
-    <script>
-      async function fetchWeather() {
-        try {
-          const response = await fetch("/api/weather");
-          if (!response.ok) {
-            throw new Error("Failed to fetch weather data");
-          }
-
-          const weatherData = await response.json();
-          console.log(weatherData);
-
-          console.log("Received Weather Data: ", weatherData);
-
-          // Update the HTML elements with the fetched data
-          document.getElementById("temperature").innerText = `Temperature: ${weatherData.temperature}`;
-          document.getElementById("windspeed").innerText = `Windspeed: ${weatherData.windspeed}`;
-          document.getElementById("condition").innerText = `Condition: ${weatherData.condition}`;
-          document.getElementById("is-day").innerText = `Day or Night: ${weatherData.isDay}`;
-          document.getElementById("visibility").innerText = `Visibility: ${weatherData.visibility !== "0 km" ? weatherData.visibility : "No data"}`;
-          document.getElementById("humidity").innerText = `Humidity: ${weatherData.humidity ? weatherData.humidity : "No data"}`;
-        } catch (error) {
-            console.error("Error: ", error.message);
-            document.getElementById("temperature").innerText = "Temperature: Error";
-            document.getElementById("windspeed").innerText = "Windspeed: Error";
-            document.getElementById("condition").innerText = "Condition: Error";
-        }
-      }
-
-      // Function to handle toggling based on user selection
-      function toggleElements() {
-        document.getElementById('temperature').style.display = document.getElementById('toggle-temperature').checked ? 'block' : 'none';
-        document.getElementById('windspeed').style.display = document.getElementById('toggle-windspeed').checked ? 'block' : 'none';
-        document.getElementById('condition').style.display = document.getElementById('toggle-condition').checked ? 'block' : 'none';
-        document.getElementById('is-day').style.display = document.getElementById('toggle-is-day').checked ? 'block' : 'none';
-        document.getElementById('visibility').style.display = document.getElementById('toggle-visibility').checked ? 'block' : 'none';
-        document.getElementById('humidity').style.display = document.getElementById('toggle-humidity').checked ? 'block' : 'none';
-      }
-
-      function refreshWeather() {
-        // clear current weather data from the page
-        document.getElementById("temperature").innerText = "Temperature: Loading...";
-        document.getElementById("windspeed").innerText = "Windspeed: Loading...";
-        document.getElementById("condition").innerText = "Condition: Loading...";
-        document.getElementById("is-day").innerText = "Day or Night: Loading...";
-        document.getElementById("visibility").innerText = "Visibility: Loading...";
-        document.getElementById("humidity").innerText = "Humidity: Loading...";
-  
-        // Fetch new weather data
-        fetchWeather();
-      }
-
-      // Add event listeners to checkboxes to trigger toggling
-      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-        checkbox.addEventListener('change', toggleElements);
-      });
-
-      // Call the function when the page loads
-      window.onload = function() {
-        fetchWeather();
-        toggleElements();  // Ensure toggle state is applied on page load
-      };
-    </script>
-
-  </body>
+    </div>
+  </main>
+</body>
 </html>

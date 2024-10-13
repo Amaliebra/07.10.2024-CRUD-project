@@ -23,12 +23,13 @@ header {
   align-items: center;
   justify-content: center;
   background: none;
+  position: fixed;
 }
 
 .logo {
-  color: #FF6347; 
+  color: #9d45af; 
   font-size: 24px; 
-  text-align: center; 
+  text-align: left; 
   font-weight: bold; 
 }
 
@@ -51,6 +52,10 @@ main {
   color: whitesmoke;
 }
 
+.weather-container p {
+  margin-bottom: 10px; 
+}
+
 #refreshButton {
   height: 40px;
   background: linear-gradient(135deg, #153677, #4e085f);
@@ -64,14 +69,14 @@ main {
 }
 
 .checkbox-list {
-  max-height: 20px; /* Only enough height to show the "choose conditions" */
+  max-height: 20px; 
   overflow: hidden;
   transition: max-height 0.4s ease;
-  padding: 5px; /* Padding around the "choose conditions" */
+  padding: 5px; 
 }
 
 .checkbox-container:hover .checkbox-list {
-  max-height: 300px; /* Expand to show the checkboxes */
+  max-height: 300px; 
 }
 
 .checkbox-container {
@@ -79,7 +84,8 @@ main {
   padding: 10px 20px;
   border-radius: 10px;
   color: white;
-  margin-top: 20px;
+  margin-top: 10px; 
+  text-align: center; 
 }
 
 .checkbox-container label {
@@ -93,8 +99,6 @@ main {
   color: white;
   margin-bottom: 10px;
 }
-
-
 
 
 @media (max-width: 768px) {
