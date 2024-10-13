@@ -26,14 +26,6 @@ header {
   position: fixed;
 }
 
-.logo {
-  font-family:'Arial', sans-serif;
-  color: #9d45af; 
-  font-size: 24px; 
-  text-align: left; 
-  font-weight: bold; 
-}
-
 main {
   display: flex;
   justify-content: center;
@@ -94,7 +86,7 @@ main {
   border: 0;
   height: 1px;
   background: white;
-  margin: 15px 0; /* Add space before and after */
+  margin: 15px 0;
 }
 
 #resetButton {
@@ -112,8 +104,6 @@ main {
   width: 100%; 
   display: block;
 }
-
-
 
 .checkbox-container label {
   display: block;
