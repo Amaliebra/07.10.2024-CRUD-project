@@ -18,6 +18,6 @@
 
 **Navigate to files**
 
-|[HTML](/wwwroot/index.html)|[CSS](/wwwroot/styles.css)|[Figma](documentation/Figma-design.pdf)
+|[HTML](/wwwroot/index.html)|[CSS](/wwwroot/styles.css)|[Figma](documentation/Figma-design.pdf)[Plan](documentation\WeatherApp.png)
 |[Program.cs](/Program.cs)|[WheatherData.cs](/classes/WeatherData.cs)
-|[WeatherController.cs](/Controller/WeatherController.cs)|[WheatherService.cs](/Services/WeatherService.cs)
+|[WeatherController.cs](/Controller/WeatherController.cs)|[WheatherService.cs](/Services/WeatherService.cs)|
