@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bax Weather Network</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1 class="logo">Bax Weather Network</h1>
-      <p class="local-only">Local weather ONLY</p>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bax Weather Network</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  
 
-    <div class="divider-line"></div> 
-    <main>
+
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/BaxAma2.png" alt="BaxAma">
+    </div>
+  </header>
+
+  <main>
+    <div class="content-wrapper"> 
       <div class="weather-container">
         <h1 class="bergen">Bergen</h1>
         <p>Current weather in Bergen, Norway.</p>
+        <p>_____________________________</p>
+        <hr class="divider">
         <p id="temperature">Temperature: Loading...</p>
-        <p id="windspeed">Windspeed: Loading...</p>
         <p id="condition">Condition: Loading...</p>
+        <p id="is-day">Day or Night: Loading...</p>
+        <p id="visibility">Visibility: Loading...</p>
+        <p id="humidity">Humidity: Loading...</p>
+        <p id="windspeed">Windspeed: Loading...</p>
+
+        <button id="refreshButton">Refresh Weather Data</button>
       </div>
-    </main>
 
-    <script>
-      async function fetchWeather() {
-        try {
-          const response = await fetch("/api/weather");
-          if (!response.ok) {
-            throw new Error("Failed to fetch weather data");
-          }
+      <div class="checkbox-container">
+        <div class="checkbox-list minimized">
+          <p class="choose-condition">Choose conditions</p>
+          <label><input type="checkbox" id="toggle-temperature" checked> Temperature</label><br>
+          <label><input type="checkbox" id="toggle-windspeed" checked> Windspeed</label><br>
+          <label><input type="checkbox" id="toggle-condition" checked> Condition</label><br>
+          <label><input type="checkbox" id="toggle-is-day" checked> Day or Night</label><br>
+          <label><input type="checkbox" id="toggle-visibility" checked> Visibility</label><br>
+          <label><input type="checkbox" id="toggle-humidity" checked> Humidity</label><br>
 
-          const weatherData = await response.json();
-          console.log("Received Weather Data: ", weatherData);
-
-          // Update the HTML elements with the fetched data
-          document.getElementById("temperature").innerText = `Temperature: ${weatherData.temperature}`;
-          document.getElementById("windspeed").innerText = `Windspeed: ${weatherData.windspeed}`;
-          document.getElementById("condition").innerText = `Condition: ${weatherData.condition}`;
-          
-        } catch (error) {
-          console.error("Error: ", error.message);
-          document.getElementById("temperature").innerText = "Temperature: Error";
-          document.getElementById("windspeed").innerText = "Windspeed: Error";
-          document.getElementById("condition").innerText = "Condition: Error";
-        }
-      }
-
-      // Call the function when the page loads
-      window.onload = fetchWeather;
-    </script>
-  </body>
+          <button id="resetButton" onclick="resetSelection()">Delete</button>
+        </div>
+        
+      </div>
+    </div>
+  </main>
+</body>
 </html>
