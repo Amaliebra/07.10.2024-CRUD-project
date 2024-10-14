@@ -55,7 +55,6 @@ main {
 
 .weather-container p {
   margin-bottom: 12px; 
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   font-weight: bold;
 }
 
@@ -66,7 +65,6 @@ main {
 
 .bergen {
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   text-align: center;
 }
 
@@ -80,6 +78,7 @@ main {
   cursor: pointer;
   font-size: 16px;
   transition: 0.3s ease;
+  
 }
 
 #refreshButton:hover {
@@ -105,10 +104,10 @@ main {
 
 .checkbox-container {
   background-color: rgba(56, 94, 137, 0.9);
-  border-radius: 10px;
+  border-radius: 5px;
   color: white; 
   display: flex;
-  margin-left: 50px;
+  margin-left: 80px;
 }
 
 .divider {
@@ -127,7 +126,7 @@ main {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 10px; 
+  margin-top: 20px; 
   transition: 0.3s ease;
   text-align: center; 
   width: 100%; 
