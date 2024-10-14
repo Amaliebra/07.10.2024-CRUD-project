@@ -16,7 +16,7 @@ html, body {
 }
 
 header {
-  min-height: 100px;
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,11 +26,11 @@ header {
 
 .logo {
   width: 60%;
+  filter: invert(100%);
 }
 
 main {
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
@@ -39,18 +39,18 @@ main {
   display: flex;
   width: 100vw;
   flex-direction: row;
+  justify-content: center;
 }
 
 .weather-container {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   background-color: rgba(56, 94, 137, 0.9);
   border-radius: 5px;
   padding: 20px;
-  width: 100%;
   max-width: 500px;
   color: whitesmoke;
+
 }
 
 .weather-container p {
@@ -61,6 +61,7 @@ main {
 
 .current-weather {
   text-align: center;
+  padding-top: 10px;
 }
 
 .bergen {
@@ -81,11 +82,20 @@ main {
   transition: 0.3s ease;
 }
 
+#refreshButton:hover {
+  background: linear-gradient(90deg, #69a1e1, #416b9b);
+}
+
 .checkbox-list {
   max-height: 20px; 
   overflow: hidden;
   transition: 0.4s ease;
   padding: 20px 20px;
+  justify-self: flex-end;
+}
+
+.checkbox-list label {
+  padding-top: 7px;
 }
 
 .checkbox-container:hover .checkbox-list {
@@ -98,7 +108,7 @@ main {
   border-radius: 10px;
   color: white; 
   display: flex;
-  justify-content: end;
+  margin-left: 50px;
 }
 
 .divider {
@@ -118,10 +128,14 @@ main {
   cursor: pointer;
   font-size: 16px;
   margin-top: 10px; 
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
   text-align: center; 
   width: 100%; 
   display: block;
+}
+
+#resetButton:hover {
+  background: linear-gradient(90deg, #69a1e1, #416b9b);
 }
 
 .checkbox-container label {
