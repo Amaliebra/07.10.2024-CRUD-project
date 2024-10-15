@@ -2,20 +2,20 @@
 
 ## Introduction
 
-* This is  a school project [Bax](https://github.com/bax082024) and [Amalie](https://github.com/Amaliebra) made together.
+* This is a school project made by [Bax](https://github.com/bax082024) and [Amalie](https://github.com/Amaliebra).
 * We made a weather app to show the weather in our city, Bergen.
 * We added filters to remove or add details.
 
-### How to use
+### How to Use
 
 **Run the app**
 
-* dotnet run
+* `dotnet run`
 
 **Use the app**
 
-* http://localhost:5000
-* http://localhost:5000/api/weather
+* [http://localhost:5000](http://localhost:5000)
+* [http://localhost:5000/api/weather](http://localhost:5000/api/weather)
 
 **Navigate to files**
 
@@ -25,7 +25,7 @@
 | [WeatherData.cs](/classes/WeatherData.cs) | [styles.css](/wwwroot/styles.css) |
 | [WeatherController.cs](/Controller/WeatherController.cs) | [Figma](documentation/Figma-design.pdf) |
 | [WeatherService.cs](/Services/WeatherService.cs) | [Plan](documentation/WeatherApp.png) |
-<br>
+
 ## Conclusion
 
 ### Idea
