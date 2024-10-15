@@ -29,13 +29,13 @@
 ## Conclusion
 
 ### Idea
-Our first idea was to create an app that could gather weather data based on a location search. We soon realized that this would be too ambitious for a week-long project. It would entail managing an enormous amount of data and setting up the structure for it.
+Initially, we envisioned developing an app that would gather weather data based on location searches and provide a week's worth of forecasts. However, we quickly recognized that this scope was too ambitious for a one-week project. Managing such a vast amount of data and establishing the necessary infrastructure would require significantly more time and resources than we had available.
 
 ### Function and Use
-We ended up using an API with a predetermined location for Bergen, and instead, we added more data for that location, along with filters and logic for viewing and removing data. The API itself limited us to refreshing the data every hour.
+We chose to use an API that provided weather data for a specific location—Bergen. Rather than trying to cover multiple areas, we decided to dive deeper into Bergen, adding more detailed information and incorporating features that let users filter and manage that data. One challenge we faced was that the API only allowed us to refresh the data every hour, which influenced how we handled everything.
 
 ### Design Process & Figma
-The initial design planned in Figma and what we ultimately implemented changed over the course of development. We used this project for practice, so at times, the design changed drastically on a day-to-day basis. By the time of writing this, it will likely change some more.
+The initial design we created in Figma was a quick sketch of the layout, showcasing our concept for a search function and data display. However, as development progressed, our implementation evolved significantly. Since we approached this project as a learning experience, the design underwent substantial changes almost daily. By the time of writing this, it is likely to evolve even further.
 
 ### Branches and GitHub
-This was our first time managing several branches, as well as our first experience collaborating on GitHub. We faced some issues with overwriting branches, in addition to forgetting to use the correct branch. However, we always managed to restore our progress, either by recovering commits or using local saves. We learned a lot about how to work together on a project and what the best practices are for branch usage.
+This was our first experience managing multiple branches and collaborating on GitHub. We ran into some challenges, like accidentally overwriting branches and forgetting to switch to the right one. Luckily, we were able to restore our progress by recovering commits or relying on local saves. Through this process, we learned a lot about teamwork and best practices for using branches effectively.
