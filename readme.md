@@ -39,3 +39,9 @@ The initial design we created in Figma was a quick sketch of the layout, showcas
 
 ### Branches and GitHub
 This was our first experience managing multiple branches and collaborating on GitHub. We ran into some challenges, like accidentally overwriting branches and forgetting to switch to the right one. Luckily, we were able to restore our progress by recovering commits or relying on local saves. Through this process, we learned a lot about teamwork and best practices for using branches effectively.
+
+## Sources
+
+- Background image https://pixabay.com/photos/bergen-harbour-norway-scandinavia-2237288/
+- API https://open-meteo.com/
+
