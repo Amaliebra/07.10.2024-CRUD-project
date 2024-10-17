@@ -88,9 +88,8 @@ main {
 .checkbox-list {
   max-height: 20px; 
   overflow: hidden;
-  transition: 0.4s ease;
+  transition: max-height 0.4s ease;
   padding: 20px 20px;
-  justify-self: flex-end;
 }
 
 .checkbox-list label {
@@ -108,6 +107,8 @@ main {
   color: white; 
   display: flex;
   margin-left: 80px;
+  height: max-content;
+  padding-bottom: 15px;
 }
 
 .divider {
