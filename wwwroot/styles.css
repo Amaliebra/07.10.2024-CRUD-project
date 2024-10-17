@@ -1,4 +1,4 @@
-* {
+* { 
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -7,8 +7,6 @@
 
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
   background-image: url("images/bergen.jpg");
   background-size: cover;
@@ -18,7 +16,7 @@ html, body {
 }
 
 header {
-  min-height: 100px;
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,67 +24,91 @@ header {
   position: fixed;
 }
 
+.logo {
+  width: 60%;
+  filter: invert(100%);
+}
+
 main {
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+
+.content-wrapper{
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .weather-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: rgba(90, 90, 234, 0.9);
+  background-color: rgba(56, 94, 137, 0.9);
   border-radius: 5px;
   padding: 20px;
-  width: 100%;
   max-width: 500px;
   color: whitesmoke;
+
 }
 
 .weather-container p {
   margin-bottom: 12px; 
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   font-weight: bold;
+}
+
+.current-weather {
+  text-align: center;
+  padding-top: 10px;
 }
 
 .bergen {
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  text-align: center;
 }
 
 #refreshButton {
   height: 40px;
-  background: linear-gradient(135deg, #153677, #4e085f);
+  background: linear-gradient(135deg, #69a1e1, #416b9b);
   color: white;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
+  
+}
+
+#refreshButton:hover {
+  background: linear-gradient(90deg, #69a1e1, #416b9b);
 }
 
 .checkbox-list {
   max-height: 20px; 
   overflow: hidden;
   transition: max-height 0.4s ease;
-  padding: 0; 
+  padding: 20px 20px;
+}
+
+.checkbox-list label {
+  padding-top: 7px;
 }
 
 .checkbox-container:hover .checkbox-list {
   max-height: 350px; 
-  padding: 5px;
+  padding: 20px 20px;
 }
 
 .checkbox-container {
-  background-color: rgba(90, 90, 234, 0.9);
-  padding: 10px 20px;
-  border-radius: 10px;
-  color: white;
-  margin-top: 10px; 
-  text-align: center; 
+  background-color: rgba(56, 94, 137, 0.9);
+  border-radius: 5px;
+  color: white; 
+  display: flex;
+  margin-left: 80px;
+  height: max-content;
+  padding-bottom: 15px;
 }
 
 .divider {
@@ -98,18 +120,22 @@ main {
 
 #resetButton {
   height: 40px;
-  background: linear-gradient(135deg, #153677, #4e085f);
+  background: linear-gradient(135deg, #69a1e1, #416b9b);
   color: white;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 10px; 
-  transition: background-color 0.3s ease;
+  margin-top: 20px; 
+  transition: 0.3s ease;
   text-align: center; 
   width: 100%; 
   display: block;
+}
+
+#resetButton:hover {
+  background: linear-gradient(90deg, #69a1e1, #416b9b);
 }
 
 .checkbox-container label {
@@ -118,12 +144,14 @@ main {
 }
 
 .choose-condition {
-  text-decoration: underline;
   font-weight: bold;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
+.choose-condition label {
+  text-align: start;
+}
 
 @media (max-width: 768px) {
   .weather-container {
@@ -131,7 +159,7 @@ main {
     padding: 10px;
   }
 
-  .logo {
+  .logo-container {
     font-size: 20px;
   }
 
